@@ -4,6 +4,8 @@ var React = require('react');
 var Tree = require('./tree');
 var Node = require('./node');
 
+var PADDING = 20;
+
 module.exports = React.createClass({
   displayName: 'UITree',
 
@@ -92,6 +94,9 @@ module.exports = React.createClass({
   dragStart: function dragStart(id, dom, e) {
     var onDragStart = this.props.onDragStart;
 
+    var node = this.getNode(id);
+
+    node.node.collapsed = true;
 
     this.dragging = {
       id: id,
@@ -107,7 +112,7 @@ module.exports = React.createClass({
     this._offsetY = e.clientY;
     this._start = true;
 
-    onDragStart && onDragStart(this.getNode(id));
+    onDragStart && onDragStart(node);
 
     window.addEventListener('mousemove', this.drag);
     window.addEventListener('mouseup', this.dragEnd);
@@ -166,11 +171,13 @@ module.exports = React.createClass({
       dragging.id = newIndex.id;
     }
 
-    if (diffY < 0) {
+    var hoveredNode = void 0;
+
+    if (diffY + PADDING < 0) {
       // up
       var above = tree.getNodeByTop(index.top - 1);
       newIndex = tree.move(index.id, above.id, 'before');
-    } else if (diffY > dragging.h) {
+    } else if (diffY - PADDING > dragging.h) {
       // down
       if (index.next) {
         var below = tree.getIndex(index.next);
@@ -189,6 +196,17 @@ module.exports = React.createClass({
           }
         }
       }
+    } else {
+
+      if (diffY < 0) {
+        hoveredNode = tree.getNodeByTop(index.top - 1);
+      } else if (diffY > dragging.h) {
+        if (index.next) {
+          hoveredNode = tree.getIndex(index.next);
+        } else {
+          hoveredNode = tree.getNodeByTop(index.top + index.height);
+        }
+      }
     }
 
     if (newIndex) {
@@ -196,9 +214,28 @@ module.exports = React.createClass({
       dragging.id = newIndex.id;
     }
 
+    var hoveredNodeCollapseState = null;
+    if (this.state.hoveredNode !== hoveredNode) {
+
+      clearTimeout(this.hoveredNodeTimeout);
+      if (hoveredNodeCollapseState in this.state && this.state.hoveredNodeCollapseState !== null) {
+        this.state.hoveredNode.collapsed = this.state.hoveredNodeCollapseState;
+      }
+
+      if (hoveredNode) {
+        this.hoveredNodeTimeout = setTimeout(function () {
+          if (!hoveredNode.leaf && hoveredNode.node.collapsed) {
+            hoveredNodeCollapseState = true;
+            hoveredNode.node.collapsed = false;
+          }
+        }, 300);
+      }
+    }
     this.setState({
       tree: tree,
-      dragging: dragging
+      dragging: dragging,
+      hoveredNode: hoveredNode,
+      hoveredNodeCollapseState: hoveredNodeCollapseState
     });
   },
   dragEnd: function dragEnd() {
