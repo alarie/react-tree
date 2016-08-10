@@ -1,7 +1,7 @@
 # react-tree [![Build Status](https://travis-ci.org/gabchang/jab-react-tree.svg)](https://travis-ci.org/gabchang/jab-react-tree)
 React tree component
 
-This is a fork of [react-ui-tree](https://pqx.github.io/react-ui-tree) by [Wang Zuo](https://github.com/pqx).
+This is a fork of [react-ui-tree](https://pqx.github.io/react-ui-tree) by [Wang Zuo](https://github.com/pqx), merged with features from [jab-react-tree](https://github.com/gabchang/jab-react-tree) by [Gabriel Chang](https://github.com/gabchang).
 This project was initially developed for a webpage builder. It maintains an internal tree structure within the component through [js-tree](https://github.com/wangzuo/js-tree).
 
 ### Demo
@@ -9,7 +9,7 @@ This project was initially developed for a webpage builder. It maintains an inte
 
 ### Installation
 ``` sh
-npm install jab-react-tree --save
+npm install alarie/react-tree --save
 ```
 
 ### Properties
@@ -91,7 +91,7 @@ const tree = {
   }]
 }
 ```
-check [app.js](https://github.com/gabchang/jab-react-tree/blob/master/example/app.js) for a working example
+check [app.js](https://github.com/alarie/react-tree/blob/master/example/app.js) for a working example
 
 ### Development
 - npm install
