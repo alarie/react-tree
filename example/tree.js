@@ -1,5 +1,5 @@
 module.exports = {
-  module: 'jab-react-tree',
+  module: 'react-tree',
   children: [{
     module: 'dist',
     collapsed: true,
@@ -7,10 +7,10 @@ module.exports = {
       module: 'node.js',
       leaf: true
     }, {
-      module: 'jab-react-tree.css',
+      module: 'react-tree.css',
       leaf: true
     }, {
-      module: 'jab-react-tree.js',
+      module: 'react-tree.js',
       leaf: true
     }, {
       module: 'tree.js',
@@ -34,10 +34,10 @@ module.exports = {
       module: 'node.js',
       leaf: true
     }, {
-      module: 'jab-react-tree.js',
+      module: 'react-tree.js',
       leaf: true
     }, {
-      module: 'jab-react-tree.less',
+      module: 'react-tree.less',
       leaf: true
     }, {
       module: 'tree.js',
