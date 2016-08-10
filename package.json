@@ -1,5 +1,5 @@
 {
-  "name": "jab-react-tree",
+  "name": "alarie-react-tree",
   "version": "1.1.1",
   "description": "React tree component",
   "main": "index.js",
@@ -14,19 +14,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gabchang/jab-react-tree.git"
+    "url": "https://github.com/alarie/alarie-react-tree.git"
   },
   "keywords": [
     "react",
     "react-component",
     "tree"
   ],
-  "author": "Gabriel Chang",
+  "author": "Simon Schmidt",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gabchang/jab-react-tree/issues"
+    "url": "https://github.com/alarie/alarie-react-tree/issues"
   },
-  "homepage": "https://github.com/gabchang/jab-react-tree",
+  "homepage": "https://github.com/alarie/alarie-react-tree",
   "peerDependencies": {
     "react": "^15.1.0",
     "react-dom": "^15.1.0"
