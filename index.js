@@ -1,1 +1,1 @@
-module.exports = require('./dist/jab-react-tree');
+module.exports = require('./dist/react-tree');
