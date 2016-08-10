@@ -1,4 +1,4 @@
-# jab-react-tree [![Build Status](https://travis-ci.org/gabchang/jab-react-tree.svg)](https://travis-ci.org/gabchang/jab-react-tree)
+# react-tree [![Build Status](https://travis-ci.org/gabchang/jab-react-tree.svg)](https://travis-ci.org/gabchang/jab-react-tree)
 React tree component
 
 This is a fork of [react-ui-tree](https://pqx.github.io/react-ui-tree) by [Wang Zuo](https://github.com/pqx).
@@ -14,7 +14,7 @@ npm install jab-react-tree --save
 
 ### Properties
 
-  * paddingLeft {Number}              
+  * paddingLeft {Number}
     Left padding for children nodes in pixels
   * tree {Object}
     Tree object (nested)
